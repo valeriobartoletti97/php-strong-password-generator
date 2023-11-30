@@ -1,0 +1,31 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box
+}
+
+:root{
+    --sky-blue: #8ecae6ff;
+    --blue-green: #219ebcff;
+    --prussian-blue: #023047ff;
+    --selective-yellow: #ffb703ff;
+    --ut-orange: #fb8500ff;
+}
+
+body{
+    background-color: var(--prussian-blue)
+}
+
+h1{
+    color:var(--ut-orange)
+}
+h2{
+    color:white
+}
+form{
+    background-color: white;
+}
+#password{
+    max-width: 300px;
+    border: 1px solid black
+}
