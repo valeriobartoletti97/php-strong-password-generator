@@ -1,3 +1,30 @@
+<?php
+
+if(isset($_GET["password"])) {
+    $password = $_GET["password"];
+    var_dump($password);
+    $characters = 'abcdefghilmnopqrstuvzwyxjk';
+    $charactersCapital = strtoupper($characters);
+    var_dump($charactersCapital);
+    $numbers = '0123456789';
+    $specialCharacters = '~`!@#$%^&*()_-+={[}]|\:;<,>.?/';
+    $allCharacters= $characters . $numbers . $specialCharacters . $charactersCapital;
+    var_dump($allCharacters);
+    $generatedPassword = '';
+    while(strlen($generatedPassword) < $password){
+        $newPassCharacter = $allCharacters[rand(0, strlen($allCharacters) -1)];
+        if(!str_contains($generatedPassword, $newPassCharacter)){
+        $generatedPassword .= $newPassCharacter;
+        }
+    }
+    var_dump($generatedPassword);
+    return $generatedPassword;
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +41,10 @@
             <h2>Genera una password sicura</h2>
         </header>
         <main class="px-3 py-4">
-            <form action="index.php" method="GET" class="py-4 px-3">
+            <form action="<?php echo $_SERVER['PHP_SELF']?>" method="GET" class="py-4 px-3">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <label for="password">Lunghezza password:</label>
-                    <input type="password" class="form-control" name="password" id="password">
+                    <input type="number" class="form-control" name="password" id="password" min="3" max="15">
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                     <button type="submit" class="btn btn-primary text-uppercase me-2">Invia</button>
