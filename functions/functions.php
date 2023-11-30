@@ -1,7 +1,7 @@
 <?php
 
 function generatePassword(){
-    if(isset($_GET["password"])) {
+    if(isset($_GET["password"]) && !empty($_GET["password"]) ) {
         $password = $_GET["password"];
         if($password === ''){
             return 'Error';
@@ -22,8 +22,10 @@ function generatePassword(){
             }
         }
         //var_dump($generatedPassword);
+        $_SESSION['password'] = $generatedPassword;
         return $generatedPassword;
     }
+    return false;
 }
 
 ?>
