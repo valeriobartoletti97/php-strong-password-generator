@@ -3,6 +3,9 @@
 function generatePassword(){
     if(isset($_GET["password"])) {
         $password = $_GET["password"];
+        if($password === ''){
+            return 'Error';
+        }
         //var_dump($password);
         $characters = 'abcdefghilmnopqrstuvzwyxjk';
         $charactersCapital = strtoupper($characters);
