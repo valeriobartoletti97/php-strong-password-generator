@@ -1,7 +1,7 @@
 <?php
 
 include __DIR__ . './functions/functions.php';
-generatePassword()
+$generatedPassword = generatePassword();
 
 ?>
 
@@ -23,6 +23,9 @@ generatePassword()
             <h2>Genera una password sicura</h2>
         </header>
         <main class="px-3 py-4">
+            <?php if(isset($_GET["password"])) { ?>
+                <h4 class="mb-3 p-3 bg-success text-center"> La tua password &egrave; <?php echo $generatedPassword?></h4>
+                <?php } ?>
             <form action="<?php echo $_SERVER['PHP_SELF']?>" method="GET" class="py-4 px-3">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <label for="password">Lunghezza password:</label>
